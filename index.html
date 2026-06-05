@@ -135,57 +135,15 @@
   </div>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const ad = params.get("ad");
-
-    const LANDER_BASE = "https://www.perkc.com/";
-
-    const LANDER_URL = ad
-      ? `${LANDER_BASE}?ad=${encodeURIComponent(ad)}`
-      : LANDER_BASE;
-
-    const cta = document.getElementById("cta");
-    cta.href = LANDER_URL;
-
-    function isAndroid() {
-      return /Android/i.test(navigator.userAgent);
-    }
-
-    function isIOS() {
-      return /iPhone|iPad|iPod/i.test(navigator.userAgent);
-    }
-
-    function openLandingPage() {
-      if (isAndroid()) {
-        const cleanUrl = LANDER_URL.replace(/^https?:\/\//, "");
-
-        const intentUrl =
-          `intent://${cleanUrl}` +
-          `#Intent;scheme=https;` +
-          `S.browser_fallback_url=${encodeURIComponent(LANDER_URL)};` +
-          `end`;
-
-        window.location.href = intentUrl;
-
-        setTimeout(() => {
-          window.location.href = LANDER_URL;
-        }, 1200);
-
-        return;
-      }
-
-      if (isIOS()) {
-        window.location.href = LANDER_URL;
-        return;
-      }
-
-      window.location.href = LANDER_URL;
-    }
-
-    cta.addEventListener("click", function (e) {
-      e.preventDefault();
-      openLandingPage();
-    });
-  </script>
+  const params = new URLSearchParams(window.location.search);
+  const ad = params.get("ad");
+  const LANDER_BASE = "https://www.perkc.com/";
+  const LANDER_URL = ad
+    ? `${LANDER_BASE}?ad=${encodeURIComponent(ad)}`
+    : LANDER_BASE;
+  const cta = document.getElementById("cta");
+  cta.href = LANDER_URL;
+  cta.target = "_blank";
+</script>
 </body>
 </html>
