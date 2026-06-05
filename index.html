@@ -141,9 +141,20 @@
   const LANDER_URL = ad
     ? `${LANDER_BASE}?ad=${encodeURIComponent(ad)}`
     : LANDER_BASE;
+
   const cta = document.getElementById("cta");
-  cta.href = LANDER_URL;
-  cta.target = "_blank";
+
+  cta.addEventListener("click", function(e) {
+    e.preventDefault();
+    const ua = navigator.userAgent;
+    if (/iPhone|iPad|iPod/i.test(ua)) {
+      window.location.href = LANDER_URL.replace("https://", "x-safari-https://");
+    } else if (/Android/i.test(ua)) {
+      window.location.href = LANDER_URL.replace("https://", "googlechrome://");
+    } else {
+      window.open(LANDER_URL, "_blank");
+    }
+  });
 </script>
 </body>
 </html>
