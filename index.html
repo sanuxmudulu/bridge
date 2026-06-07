@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Get $750 in Apple Cash</title>
 
   <style>
@@ -13,12 +14,13 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    html, body {
+    html,
+    body {
       width: 100%;
       min-height: 100%;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       background: #ffffff;
-      color: #000000;
+      color: #1f1f1f;
     }
 
     body {
@@ -29,38 +31,52 @@
       width: 100%;
       max-width: 480px;
       margin: 0 auto;
-      padding: 18px 16px 120px;
+      padding: 16px 16px 118px;
       background: #ffffff;
+    }
+
+    .notification-wrap {
+      height: 92px;
+      margin-bottom: 18px;
+      overflow: hidden;
+      position: relative;
     }
 
     .notification-card {
       width: 100%;
-      background: #fcfaf5;
-      border: 1px solid #f0eadf;
+      background: #fffdf8;
+      border: 1px solid #eee7dc;
       border-radius: 22px;
       padding: 14px 16px;
       display: flex;
       align-items: center;
       gap: 14px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-      margin-bottom: 28px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateY(-115%);
+      opacity: 0;
+      transition: transform 0.45s ease, opacity 0.45s ease;
+    }
+
+    .notification-card.show {
+      transform: translateY(0);
+      opacity: 1;
     }
 
     .notification-logo {
-      width: 58px;
-      height: 58px;
-      border-radius: 16px;
-      background: #000000;
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
-      overflow: hidden;
     }
 
     .notification-logo img {
-      width: 32px;
-      height: 32px;
+      width: 48px;
+      height: 48px;
       object-fit: contain;
       display: block;
     }
@@ -72,82 +88,81 @@
 
     .notification-top {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 12px;
+      justify-content: space-between;
+      gap: 10px;
       margin-bottom: 4px;
     }
 
     .notification-title {
-      font-size: 15px;
+      font-size: 15.5px;
       line-height: 1.2;
-      font-weight: 800;
-      color: #1d1d1f;
-      letter-spacing: -0.2px;
+      font-weight: 650;
+      color: #222222;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .notification-time {
       font-size: 13px;
-      line-height: 1;
-      color: #9a948c;
-      font-weight: 500;
+      color: #9a948d;
+      font-weight: 400;
       white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .notification-subtext {
-      font-size: 14px;
-      line-height: 1.3;
-      color: #6f6a63;
-      font-weight: 500;
+      font-size: 14.5px;
+      line-height: 1.25;
+      color: #67636a;
+      font-weight: 400;
     }
 
     .brand-block {
       text-align: center;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .brand-logo {
-      width: 82px;
-      height: 82px;
-      border-radius: 24px;
-      background: #000000;
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 14px;
-      overflow: hidden;
     }
 
     .brand-logo img {
-      width: 44px;
-      height: 44px;
+      width: 76px;
+      height: 76px;
       object-fit: contain;
       display: block;
     }
 
     .brand-note {
       font-size: 15px;
-      line-height: 1.3;
-      color: #9e9a95;
-      font-weight: 600;
+      line-height: 1.35;
+      color: #9b9691;
+      font-weight: 500;
     }
 
     .timer-bar {
       width: 100%;
       background: #fff4f4;
-      border: 1px solid #f4d9d9;
+      border: 1px solid #f0d3d3;
       border-radius: 18px;
-      padding: 18px 16px;
+      padding: 17px 14px;
       text-align: center;
-      color: #c63a3a;
+      color: #c73838;
       font-size: 18px;
       line-height: 1.2;
-      font-weight: 800;
+      font-weight: 650;
       margin-bottom: 34px;
     }
 
-    .timer-bar .timer {
-      font-weight: 900;
+    .timer {
+      font-weight: 750;
     }
 
     .hero {
@@ -155,47 +170,39 @@
       margin-bottom: 28px;
     }
 
-    .hero-kicker {
-      font-size: 18px;
-      line-height: 1.2;
-      font-weight: 800;
-      color: #1d6fff;
-      margin-bottom: 10px;
-    }
-
     .hero h1 {
-      font-size: 56px;
-      line-height: 0.98;
-      font-weight: 900;
-      letter-spacing: -1.6px;
+      font-size: 52px;
+      line-height: 1;
+      font-weight: 750;
+      letter-spacing: -1.5px;
       color: #1d6fff;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero h2 {
       font-size: 30px;
-      line-height: 1.08;
-      font-weight: 900;
-      letter-spacing: -0.9px;
-      color: #171717;
-      margin-bottom: 14px;
+      line-height: 1.1;
+      font-weight: 650;
+      letter-spacing: -0.6px;
+      color: #141414;
+      margin-bottom: 16px;
     }
 
     .bonus-line {
-      font-size: 18px;
+      font-size: 17px;
       line-height: 1.35;
-      font-weight: 800;
+      font-weight: 650;
       color: #1d6fff;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .hero-subtext {
       font-size: 18px;
-      line-height: 1.5;
-      color: #606066;
-      font-weight: 500;
-      margin-bottom: 26px;
-      padding: 0 4px;
+      line-height: 1.48;
+      color: #5f5d66;
+      font-weight: 400;
+      margin-bottom: 28px;
+      padding: 0 6px;
     }
 
     .cta {
@@ -207,24 +214,23 @@
       text-decoration: none;
       border: none;
       border-radius: 18px;
-      background: linear-gradient(90deg, #ff6554 0%, #e63d2e 100%);
+      background: linear-gradient(90deg, #ff6458 0%, #e7382e 100%);
       color: #ffffff;
-      font-size: 19px;
-      font-weight: 900;
-      letter-spacing: -0.3px;
-      box-shadow: 0 10px 24px rgba(230, 61, 46, 0.18);
+      font-size: 20px;
+      font-weight: 650;
+      letter-spacing: -0.2px;
+      box-shadow: 0 10px 24px rgba(231, 56, 46, 0.16);
       cursor: pointer;
+    }
+
+    .cta:active {
+      transform: scale(0.985);
     }
 
     .cta-icon {
       font-size: 22px;
-      margin-right: 10px;
+      margin-right: 11px;
       line-height: 1;
-    }
-
-    .cta a {
-      color: inherit;
-      text-decoration: none;
     }
 
     .icon-row {
@@ -233,16 +239,15 @@
       justify-content: center;
       gap: 9px;
       margin-top: 20px;
-      margin-bottom: 8px;
       flex-wrap: wrap;
     }
 
     .mini-chip {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      background: #f7f2ea;
-      border: 1px solid #efe5d8;
+      background: #faf4eb;
+      border: 1px solid #efe3d4;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -252,38 +257,38 @@
     .icon-row-text {
       font-size: 17px;
       line-height: 1.3;
-      color: #6b6670;
-      font-weight: 500;
+      color: #65616a;
+      font-weight: 400;
       margin-left: 8px;
     }
 
     .how-card {
       width: 100%;
-      background: #fcfaf5;
-      border: 1px solid #f0eadf;
+      background: #fffdf8;
+      border: 1px solid #eee4d7;
       border-radius: 28px;
       overflow: hidden;
-      margin-top: 28px;
-      margin-bottom: 28px;
+      margin-top: 34px;
+      margin-bottom: 30px;
     }
 
     .how-header {
       padding: 28px 24px 22px;
       font-size: 17px;
       line-height: 1;
-      font-weight: 800;
-      letter-spacing: 2px;
-      color: #6f6a73;
+      font-weight: 650;
+      letter-spacing: 2.8px;
+      color: #6e6a73;
       text-transform: uppercase;
-      border-bottom: 1px solid #ece2d4;
+      border-bottom: 1px solid #ede3d6;
     }
 
     .step-row {
       display: flex;
       align-items: flex-start;
-      gap: 18px;
+      gap: 20px;
       padding: 26px 24px;
-      border-bottom: 1px solid #ece2d4;
+      border-bottom: 1px solid #ede3d6;
     }
 
     .step-row:last-child {
@@ -291,40 +296,40 @@
     }
 
     .step-badge {
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      background: linear-gradient(180deg, #ff6554 0%, #e63d2e 100%);
+      width: 48px;
+      height: 48px;
+      border-radius: 13px;
+      background: linear-gradient(180deg, #ff6258 0%, #ed3b34 100%);
       color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 17px;
-      font-weight: 900;
+      font-size: 18px;
+      font-weight: 650;
       flex-shrink: 0;
-      box-shadow: 0 6px 16px rgba(230, 61, 46, 0.18);
+      box-shadow: 0 8px 16px rgba(237, 59, 52, 0.16);
     }
 
     .step-copy h3 {
-      font-size: 25px;
-      line-height: 1.14;
-      font-weight: 900;
-      color: #171717;
-      letter-spacing: -0.6px;
+      font-size: 23px;
+      line-height: 1.18;
+      font-weight: 650;
+      color: #1c1c1c;
+      letter-spacing: -0.4px;
       margin-bottom: 10px;
     }
 
     .step-copy p {
       font-size: 17px;
-      line-height: 1.55;
-      color: #66636b;
-      font-weight: 500;
+      line-height: 1.5;
+      color: #5f5d66;
+      font-weight: 400;
     }
 
     .urgency-card {
       width: 100%;
-      background: #fcfaf5;
-      border: 1px solid #f0eadf;
+      background: #fffdf8;
+      border: 1px solid #eee4d7;
       border-radius: 24px;
       padding: 26px 24px;
       display: flex;
@@ -342,14 +347,14 @@
 
     .urgency-card p {
       font-size: 18px;
-      line-height: 1.6;
-      color: #7a5226;
-      font-weight: 500;
+      line-height: 1.58;
+      color: #744617;
+      font-weight: 400;
     }
 
     .urgency-card strong {
       color: #1d6fff;
-      font-weight: 900;
+      font-weight: 650;
     }
 
     .trust-wrap {
@@ -365,9 +370,9 @@
       flex-wrap: wrap;
       margin-bottom: 18px;
       color: #6e6a73;
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.3;
-      font-weight: 500;
+      font-weight: 400;
     }
 
     .trust-item {
@@ -377,8 +382,7 @@
       white-space: nowrap;
     }
 
-    .trust-item .trust-icon {
-      color: #d46b5c;
+    .trust-icon {
       font-size: 20px;
       line-height: 1;
     }
@@ -386,17 +390,17 @@
     .trust-subtext {
       font-size: 16px;
       line-height: 1.5;
-      color: #8b8790;
-      font-weight: 500;
+      color: #8a858e;
+      font-weight: 400;
       margin-bottom: 18px;
     }
 
     .disclaimer {
       font-size: 12px;
       line-height: 1.55;
-      color: #b0abb3;
+      color: #aaa5ad;
       text-align: center;
-      font-weight: 500;
+      font-weight: 400;
       padding: 0 8px;
     }
 
@@ -409,7 +413,7 @@
       background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-top: 1px solid #eee6da;
+      border-top: 1px solid #eee4d7;
       padding: 12px 16px 18px;
       z-index: 50;
     }
@@ -426,12 +430,20 @@
         padding-right: 14px;
       }
 
+      .notification-title {
+        font-size: 14.5px;
+      }
+
+      .notification-subtext {
+        font-size: 13.5px;
+      }
+
       .hero h1 {
         font-size: 48px;
       }
 
       .hero h2 {
-        font-size: 25px;
+        font-size: 26px;
       }
 
       .bonus-line,
@@ -444,7 +456,7 @@
       }
 
       .step-copy p {
-        font-size: 15px;
+        font-size: 15.5px;
       }
 
       .trust-items {
@@ -464,24 +476,21 @@
       }
 
       .notification-logo {
-        width: 52px;
-        height: 52px;
+        width: 50px;
+        height: 50px;
       }
 
-      .notification-title {
-        font-size: 14px;
-      }
-
-      .notification-subtext {
-        font-size: 13px;
+      .notification-logo img {
+        width: 42px;
+        height: 42px;
       }
 
       .hero h1 {
-        font-size: 44px;
+        font-size: 43px;
       }
 
       .hero h2 {
-        font-size: 23px;
+        font-size: 24px;
       }
 
       .cta {
@@ -492,6 +501,11 @@
       .step-row {
         padding: 22px 18px;
         gap: 14px;
+      }
+
+      .step-badge {
+        width: 44px;
+        height: 44px;
       }
 
       .step-copy h3 {
@@ -505,29 +519,27 @@
       .urgency-card p {
         font-size: 16px;
       }
-
-      .trust-subtext {
-        font-size: 14px;
-      }
     }
   </style>
 </head>
 
 <body>
   <main class="page">
-    <section class="notification-card">
-      <div class="notification-logo">
-        <img src="apple logo.png" alt="Apple logo" />
-      </div>
-
-      <div class="notification-content">
-        <div class="notification-top">
-          <div class="notification-title" id="notifTitle">Olivia M. claimed +$612</div>
-          <div class="notification-time">just now</div>
+    <div class="notification-wrap">
+      <section class="notification-card" id="notificationCard">
+        <div class="notification-logo">
+          <img src="apple logo.png" alt="Apple logo" />
         </div>
-        <div class="notification-subtext" id="notifSubtext">Completed 4 deals · just now</div>
-      </div>
-    </section>
+
+        <div class="notification-content">
+          <div class="notification-top">
+            <div class="notification-title" id="notifTitle">Olivia M. claimed +$612</div>
+            <div class="notification-time" id="notifTime">just now</div>
+          </div>
+          <div class="notification-subtext" id="notifSubtext">Completed 4 offers</div>
+        </div>
+      </section>
+    </div>
 
     <section class="brand-block">
       <div class="brand-logo">
@@ -537,11 +549,10 @@
     </section>
 
     <section class="timer-bar">
-      ⏰ Offer expires in <span class="timer" id="timer">14:08</span>
+      ⏰ Offer expires in <span class="timer" id="timer">14:59</span>
     </section>
 
     <section class="hero">
-      <div class="hero-kicker"></div>
       <h1>Get $750</h1>
       <h2>In Apple Cash</h2>
 
@@ -645,7 +656,7 @@
       link.href = OFFER_URL;
     });
 
-    let totalSeconds = 14 * 60 + 8;
+    let totalSeconds = 14 * 60 + 59;
     const timerElement = document.getElementById("timer");
 
     function updateTimer() {
@@ -656,7 +667,7 @@
         String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
 
       if (totalSeconds <= 0) {
-        totalSeconds = 14 * 60 + 8;
+        totalSeconds = 14 * 60 + 59;
       } else {
         totalSeconds--;
       }
@@ -673,16 +684,12 @@
 
     const surnameInitials = ["S.", "J.", "W.", "B.", "R.", "M.", "L."];
     const actionWords = ["claimed", "got", "received"];
+    const timeValues = ["just now", "1m ago", "2m ago"];
 
-    const subtextPool = [
-      "Completed 4 deals · just now",
-      "Completed 3 deals · just now",
-      "Completed 2 offers · 1 min ago",
-      "Finished signup · just now",
-      "Unlocked reward · just now",
-      "Verified email · 1 min ago",
-      "Completed 5 deals · just now"
-    ];
+    const notificationCard = document.getElementById("notificationCard");
+    const notifTitle = document.getElementById("notifTitle");
+    const notifSubtext = document.getElementById("notifSubtext");
+    const notifTime = document.getElementById("notifTime");
 
     function randomFrom(arr) {
       return arr[Math.floor(Math.random() * arr.length)];
@@ -692,21 +699,53 @@
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    function updateNotification() {
+    function makeNotificationData() {
       const name = randomFrom(firstNames);
       const surname = randomFrom(surnameInitials);
       const action = randomFrom(actionWords);
-      const amount = randomAmount(354, 750);
-      const subtext = randomFrom(subtextPool);
+      const time = randomFrom(timeValues);
 
-      document.getElementById("notifTitle").textContent =
-        `${name} ${surname} ${action} +$${amount}`;
+      const typeRoll = Math.random();
+      let subtext;
+      let amount;
 
-      document.getElementById("notifSubtext").textContent = subtext;
+      if (typeRoll < 0.25) {
+        subtext = "Signed up";
+        amount = randomAmount(200, 300);
+      } else {
+        const offers = randomFrom([2, 3, 4, 5]);
+        subtext = `Completed ${offers} offers`;
+
+        if (offers === 4 || offers === 5) {
+          amount = randomAmount(501, 750);
+        } else {
+          amount = randomAmount(300, 500);
+        }
+      }
+
+      return {
+        title: `${name} ${surname} ${action} +$${amount}`,
+        subtext,
+        time
+      };
     }
 
-    updateNotification();
-    setInterval(updateNotification, 5000);
+    function showNotification() {
+      const data = makeNotificationData();
+
+      notifTitle.textContent = data.title;
+      notifSubtext.textContent = data.subtext;
+      notifTime.textContent = data.time;
+
+      notificationCard.classList.add("show");
+
+      setTimeout(function() {
+        notificationCard.classList.remove("show");
+      }, 3000);
+    }
+
+    showNotification();
+    setInterval(showNotification, 4500);
   </script>
 </body>
 </html>
