@@ -26,16 +26,12 @@
     }
 
     .container {
-      width: calc(100% - 40px);
+      width: 100%;
       max-width: 390px;
-      padding: 34px 26px 36px;
+      padding: 0 28px;
       text-align: center;
-      border-radius: 22px;
-      background: #ffffff;
-      border: 1px solid #e5e5e5;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       opacity: 0;
-      transform: translateY(16px);
+      transform: translateY(14px);
       animation: fadeUp 0.35s ease forwards 0.08s;
     }
 
@@ -46,37 +42,47 @@
       }
     }
 
+    .icon-box {
+      width: 66px;
+      height: 66px;
+      margin: 0 auto 28px;
+      border-radius: 18px;
+      border: 1px solid #dcdcdc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    .icon {
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 700;
+      color: #000;
+      transform: translateY(-1px);
+    }
+
     h1 {
-      font-size: 31px;
-      line-height: 1.12;
-      font-weight: 600;
+      font-size: 29px;
+      line-height: 1.15;
+      font-weight: 800;
       letter-spacing: -0.8px;
       color: #000;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
     }
 
     h1 span {
       color: #000;
     }
 
-    .arrow {
-      width: 0;
-      height: 0;
-      margin: 0 auto 22px;
-      border-left: 15px solid transparent;
-      border-right: 15px solid transparent;
-      border-top: 26px solid #000;
-      animation: bounce 1.15s ease-in-out infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(7px);
-      }
+    .subtitle {
+      font-size: 15px;
+      line-height: 1.45;
+      font-weight: 400;
+      color: #555;
+      margin: 0 auto 34px;
+      max-width: 315px;
     }
 
     .btn {
@@ -84,39 +90,62 @@
       align-items: center;
       justify-content: center;
       width: 100%;
-      min-height: 62px;
-      border-radius: 16px;
+      min-height: 56px;
+      border-radius: 12px;
       border: none;
       text-decoration: none;
       cursor: pointer;
       background: #000;
       color: #fff;
-      font-size: 20px;
+      font-size: 14px;
       font-weight: 900;
-      letter-spacing: 0.8px;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
       transition: transform 0.15s ease, filter 0.15s ease;
     }
 
     .btn:active {
       transform: scale(0.97);
-      filter: brightness(1.08);
+      filter: brightness(1.15);
+    }
+
+    .browser-note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #999;
+      letter-spacing: 0.2px;
     }
 
     @media (max-width: 390px) {
       .container {
-        width: calc(100% - 34px);
-        padding: 30px 22px 32px;
+        padding: 0 22px;
+      }
+
+      .icon-box {
+        width: 62px;
+        height: 62px;
+        border-radius: 17px;
+        margin-bottom: 26px;
+      }
+
+      .icon {
+        font-size: 32px;
       }
 
       h1 {
-        font-size: 28px;
+        font-size: 27px;
+      }
+
+      .subtitle {
+        font-size: 14px;
+        margin-bottom: 30px;
       }
 
       .btn {
-        min-height: 58px;
-        font-size: 14px;
+        min-height: 54px;
+        font-size: 13px;
+        letter-spacing: 2.6px;
       }
     }
   </style>
@@ -124,37 +153,49 @@
 
 <body>
   <div class="container">
+    <div class="icon-box">
+      <div class="icon">↗</div>
+    </div>
+
     <h1>
-      Click here to Get<br />
-      <span>Started</span>
+      Open in <span>browser</span>
     </h1>
 
-    <div class="arrow"></div>
+    <p class="subtitle">
+      For the best experience, this page needs to open in your browser.
+    </p>
 
     <a class="btn" id="cta" href="#">CONTINUE</a>
+
+    <div class="browser-note">
+      Safari &nbsp;·&nbsp; Chrome &nbsp;·&nbsp; Secure
+    </div>
   </div>
 
   <script>
-  const params = new URLSearchParams(window.location.search);
-  const ad = params.get("ad");
-  const LANDER_BASE = "https://www.perkc.com/";
-  const LANDER_URL = ad
-    ? `${LANDER_BASE}?ad=${encodeURIComponent(ad)}`
-    : LANDER_BASE;
+    const params = new URLSearchParams(window.location.search);
+    const ad = params.get("ad");
 
-  const cta = document.getElementById("cta");
+    const LANDER_BASE = "https://www.perkc.com/";
+    const LANDER_URL = ad
+      ? `${LANDER_BASE}?ad=${encodeURIComponent(ad)}`
+      : LANDER_BASE;
 
-  cta.addEventListener("click", function(e) {
-    e.preventDefault();
-    const ua = navigator.userAgent;
-    if (/iPhone|iPad|iPod/i.test(ua)) {
-      window.location.href = LANDER_URL.replace("https://", "x-safari-https://");
-    } else if (/Android/i.test(ua)) {
-      window.location.href = LANDER_URL.replace("https://", "googlechrome://");
-    } else {
-      window.open(LANDER_URL, "_blank");
-    }
-  });
-</script>
+    const cta = document.getElementById("cta");
+
+    cta.addEventListener("click", function(e) {
+      e.preventDefault();
+
+      const ua = navigator.userAgent;
+
+      if (/iPhone|iPad|iPod/i.test(ua)) {
+        window.location.href = LANDER_URL.replace("https://", "x-safari-https://");
+      } else if (/Android/i.test(ua)) {
+        window.location.href = LANDER_URL.replace("https://", "googlechrome://");
+      } else {
+        window.open(LANDER_URL, "_blank");
+      }
+    });
+  </script>
 </body>
 </html>
