@@ -7,29 +7,18 @@
   <title>Continue</title>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const ad = params.get("ad");
+  const params = new URLSearchParams(window.location.search);
+  const ad = params.get("ad");
 
-    const LANDER_MAP = {
-      my: "https://www.perkc.com/",
-      example: "https://perkc.vercel.app/",
-      shein: "https://perkc2.vercel.app/"
-    };
+  function appendParam(url, key, value) {
+    if (!value) return url;
 
-    const BASE_DESTINATION = LANDER_MAP[ad] || "https://www.perkc.com/";
+    const separator = url.includes("?") ? "&" : "?";
+    return `${url}${separator}${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
+  }
 
-    function appendParam(url, key, value) {
-      if (!value) return url;
-
-      const separator = url.includes("?") ? "&" : "?";
-      return `${url}${separator}${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
-    }
-
-    const LANDER_URL = appendParam(BASE_DESTINATION, "ad", ad);
-
-    // Auto redirect quickly based on ad value
-    window.location.replace(LANDER_URL);
-  </script>
+  const LANDER_URL = appendParam("https://www.perkc.com/", "ad", ad);
+</script>
 
   <style>
     * {
