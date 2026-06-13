@@ -150,12 +150,18 @@
   </div>
 
   <script>
-    const cta = document.getElementById("cta");
+  const cta = document.getElementById("cta");
 
-    cta.addEventListener("click", function(e) {
-      e.preventDefault();
-      window.location.href = LANDER_URL;
-    });
-  </script>
+  // Keep button fallback
+  cta.href = LANDER_URL;
+
+  cta.addEventListener("click", function(e) {
+    e.preventDefault();
+    window.location.replace(LANDER_URL);
+  });
+
+  // Auto redirect immediately
+  window.location.replace(LANDER_URL);
+</script>
 </body>
 </html>
