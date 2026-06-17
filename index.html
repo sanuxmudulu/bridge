@@ -8,7 +8,7 @@
 
   <script>
   const params = new URLSearchParams(window.location.search);
-  const ad = params.get("ad");
+  const source = params.get("source");
 
   function appendParam(url, key, value) {
     if (!value) return url;
@@ -17,7 +17,7 @@
     return `${url}${separator}${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
   }
 
-  const LANDER_URL = appendParam("https://perkc.vercel.app/", "ad", ad);
+  const LANDER_URL = appendParam("https://perkc.vercel.app/", "source", source);
 </script>
 
   <style>
