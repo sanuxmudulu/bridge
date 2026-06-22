@@ -48,29 +48,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
       margin-top: 8px;
       margin-bottom: 26px;
     }
 
-    .logo-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: var(--green);
-      display: grid;
-      place-items: center;
-      color: #03100b;
-      font-weight: 1000;
-      font-size: 26px;
-      box-shadow: 0 0 26px rgba(1, 214, 118, 0.55);
-    }
-
-    .logo-text {
-      font-size: 34px;
-      font-weight: 900;
-      letter-spacing: -1px;
-      color: var(--green);
+    .logo img {
+      width: 260px;
+      max-width: 85%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 0 24px rgba(1, 214, 118, 0.45));
     }
 
     .hero {
@@ -357,9 +344,8 @@
     }
 
     .bottom-cta {
-      position: sticky;
-      bottom: 14px;
-      z-index: 10;
+      margin-top: 8px;
+      margin-bottom: 4px;
     }
 
     @media (max-width: 360px) {
@@ -367,13 +353,14 @@
         font-size: 30px;
       }
 
-      .logo-text {
-        font-size: 30px;
-      }
-
       .trust {
         gap: 8px;
         font-size: 10.5px;
+      }
+
+      .stats {
+        gap: 10px;
+        font-size: 11px;
       }
     }
   </style>
@@ -382,8 +369,7 @@
 <body>
   <main class="page">
     <header class="logo">
-      <div class="logo-icon">$</div>
-      <div class="logo-text">FREECASH</div>
+      <img src="fc logo.jpg" alt="Freecash Logo" />
     </header>
 
     <section class="hero">
@@ -418,12 +404,12 @@
       <div class="earn-boxes">
         <div class="earn-box">
           <small>You Spend</small>
-          <strong id="spendAmount">$110</strong>
+          <strong id="spendAmount">$40</strong>
         </div>
 
         <div class="earn-box highlight">
           <small>You Earn</small>
-          <strong id="earnAmount">$880</strong>
+          <strong id="earnAmount">$320</strong>
         </div>
       </div>
 
@@ -433,7 +419,7 @@
           id="earnSlider"
           min="20"
           max="200"
-          value="110"
+          value="40"
           step="10"
         />
 
@@ -485,8 +471,8 @@
     </section>
 
     <div class="stats">
-      <span>10M+ Users</span>
-      <span>$80M+ Paid Out</span>
+      <span>50M+ Players</span>
+      <span>$100M+ Paid Out</span>
       <span>🇺🇸 US</span>
     </div>
 
@@ -511,9 +497,24 @@
     slider.addEventListener("input", updateEarnings);
     updateEarnings();
 
+    function getIncomingSource() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("source");
+    }
+
+    function buildOutgoingLink() {
+      const baseLink = "https://freecash.com/?ref=YOUR_REF_HERE";
+      const source = getIncomingSource();
+
+      if (!source) {
+        return baseLink;
+      }
+
+      return baseLink + "&source=" + encodeURIComponent(source);
+    }
+
     function goToOffer() {
-      // Replace this with your actual tracking/offer link.
-      window.location.href = "https://freecash.com";
+      window.location.href = buildOutgoingLink();
     }
   </script>
 </body>
