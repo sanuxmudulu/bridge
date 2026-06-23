@@ -3,19 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Freecash Rewards</title>
+  <title>Playful Rewards</title>
 
   <style>
     :root {
-      --green: #01D676;
-      --green-dark: #00a95c;
-      --bg: #050807;
-      --card: #0b1110;
-      --card-2: #101715;
-      --border: rgba(1, 214, 118, 0.25);
+      --purple: #8b20ff;
+      --purple-dark: #5f00c9;
+      --pink: #ff4fd8;
+      --blue: #6c7dff;
+      --bg: #050509;
+      --card: #0d0b16;
+      --card-2: #151020;
+      --border: rgba(155, 72, 255, 0.28);
       --text: #ffffff;
-      --muted: #a7b4ad;
-      --red: #ff3b3b;
+      --muted: #b7aec8;
+      --red: #ff4b6e;
+      --gradient: linear-gradient(90deg, #6c7dff 0%, #9b35ff 48%, #ff4fd8 100%);
     }
 
     * {
@@ -26,7 +29,10 @@
     }
 
     body {
-      background: var(--bg);
+      background:
+        radial-gradient(circle at 50% 18%, rgba(139, 32, 255, 0.16), transparent 34%),
+        radial-gradient(circle at 85% 45%, rgba(255, 79, 216, 0.10), transparent 30%),
+        var(--bg);
       color: var(--text);
       min-height: 100vh;
       display: flex;
@@ -46,15 +52,43 @@
       align-items: center;
       justify-content: center;
       margin-top: 0px;
-      margin-bottom: 2px;
+      margin-bottom: 6px;
+      gap: 10px;
     }
 
-    .logo img {
-      width: 180px;
-      max-width: 65%;
-      height: auto;
-      display: block;
-      filter: none;
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      background: var(--gradient);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 22px rgba(155, 72, 255, 0.55);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-icon::before {
+      content: "P";
+      font-size: 27px;
+      line-height: 1;
+      font-weight: 950;
+      color: #ffffff;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
+    }
+
+    .logo-text {
+      font-size: 25px;
+      font-weight: 950;
+      letter-spacing: -1px;
+      color: #ffffff;
+    }
+
+    .logo-text span {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .hero {
@@ -67,11 +101,14 @@
       line-height: 1.06;
       letter-spacing: -1.4px;
       font-weight: 950;
-      text-shadow: 0 0 28px rgba(1, 214, 118, 0.45);
+      text-shadow: 0 0 28px rgba(155, 72, 255, 0.45);
     }
 
     .hero h1 span {
-      color: var(--green);
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
       display: block;
     }
 
@@ -89,12 +126,13 @@
       gap: 7px;
       padding: 8px 15px;
       border-radius: 999px;
-      background: rgba(1, 214, 118, 0.09);
+      background: rgba(139, 32, 255, 0.12);
       border: 1px solid var(--border);
-      color: var(--green);
+      color: #d9bdff;
       font-size: 13px;
       font-weight: 800;
       margin-top: 4px;
+      box-shadow: 0 0 18px rgba(139, 32, 255, 0.16);
     }
 
     .cta {
@@ -103,22 +141,22 @@
       margin-top: 22px;
       padding: 18px 20px;
       border-radius: 15px;
-      background: var(--green);
-      color: #03100b;
+      background: var(--gradient);
+      color: #ffffff;
       font-size: 17px;
       font-weight: 950;
       cursor: pointer;
       box-shadow:
-        0 0 24px rgba(1, 214, 118, 0.55),
-        0 12px 30px rgba(1, 214, 118, 0.2);
+        0 0 24px rgba(155, 72, 255, 0.58),
+        0 12px 30px rgba(255, 79, 216, 0.18);
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
     .cta:hover {
       transform: translateY(-2px);
       box-shadow:
-        0 0 34px rgba(1, 214, 118, 0.75),
-        0 16px 36px rgba(1, 214, 118, 0.26);
+        0 0 34px rgba(155, 72, 255, 0.78),
+        0 16px 36px rgba(255, 79, 216, 0.26);
     }
 
     .trust {
@@ -133,17 +171,18 @@
 
     .trust span::before {
       content: "✓ ";
-      color: var(--green);
+      color: var(--pink);
       font-weight: 900;
     }
 
     .earn-card,
     .steps-card,
     .important-card {
-      background: linear-gradient(180deg, rgba(16, 23, 21, 0.98), rgba(8, 13, 12, 0.98));
+      background:
+        linear-gradient(180deg, rgba(21, 16, 32, 0.98), rgba(8, 7, 13, 0.98));
       border: 1px solid var(--border);
       border-radius: 18px;
-      box-shadow: 0 0 30px rgba(1, 214, 118, 0.08);
+      box-shadow: 0 0 30px rgba(139, 32, 255, 0.10);
     }
 
     .earn-card {
@@ -159,8 +198,11 @@
     }
 
     .earn-card h2 span {
-      color: var(--green);
-      text-shadow: 0 0 16px rgba(1, 214, 118, 0.5);
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: none;
     }
 
     .earn-card p {
@@ -179,15 +221,15 @@
     }
 
     .earn-box {
-      border: 1px solid rgba(1, 214, 118, 0.22);
-      background: #080c0b;
+      border: 1px solid rgba(155, 72, 255, 0.25);
+      background: #090711;
       border-radius: 12px;
       padding: 17px 10px;
     }
 
     .earn-box small {
       display: block;
-      color: #78877f;
+      color: #8b819c;
       font-size: 10px;
       letter-spacing: 2px;
       font-weight: 800;
@@ -202,13 +244,16 @@
     }
 
     .earn-box.highlight {
-      border-color: rgba(1, 214, 118, 0.65);
-      box-shadow: inset 0 0 20px rgba(1, 214, 118, 0.06);
+      border-color: rgba(255, 79, 216, 0.62);
+      box-shadow: inset 0 0 20px rgba(255, 79, 216, 0.07);
     }
 
     .earn-box.highlight strong {
-      color: var(--green);
-      text-shadow: 0 0 16px rgba(1, 214, 118, 0.45);
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: none;
     }
 
     .slider-wrap {
@@ -217,14 +262,14 @@
 
     input[type="range"] {
       width: 100%;
-      accent-color: var(--green);
+      accent-color: var(--purple);
       cursor: pointer;
     }
 
     .slider-values {
       display: flex;
       justify-content: space-between;
-      color: #738078;
+      color: #80768f;
       font-size: 11px;
       margin-top: 5px;
     }
@@ -236,7 +281,7 @@
 
     .steps-title {
       padding: 18px 18px 8px;
-      color: var(--green);
+      color: #d9bdff;
       font-size: 12px;
       letter-spacing: 2.2px;
       text-align: center;
@@ -249,7 +294,7 @@
       grid-template-columns: 42px 1fr;
       gap: 10px;
       padding: 17px 18px;
-      border-top: 1px solid rgba(1, 214, 118, 0.12);
+      border-top: 1px solid rgba(155, 72, 255, 0.14);
     }
 
     .num {
@@ -258,10 +303,10 @@
       border-radius: 50%;
       display: grid;
       place-items: center;
-      background: var(--green);
-      color: #03100b;
+      background: var(--gradient);
+      color: #ffffff;
       font-weight: 950;
-      box-shadow: 0 0 18px rgba(1, 214, 118, 0.6);
+      box-shadow: 0 0 18px rgba(155, 72, 255, 0.62);
       margin-top: 2px;
     }
 
@@ -283,10 +328,10 @@
       grid-template-columns: 32px 1fr;
       gap: 12px;
       position: relative;
-      border-color: rgba(255, 59, 59, 0.38);
+      border-color: rgba(255, 79, 216, 0.38);
       background:
-        radial-gradient(circle at 88% 0%, rgba(255, 59, 59, 0.16), transparent 40%),
-        linear-gradient(180deg, rgba(18, 11, 11, 0.98), rgba(10, 8, 8, 0.98));
+        radial-gradient(circle at 88% 0%, rgba(255, 79, 216, 0.16), transparent 40%),
+        linear-gradient(180deg, rgba(22, 10, 28, 0.98), rgba(10, 7, 13, 0.98));
     }
 
     .badge {
@@ -294,25 +339,25 @@
       top: 0;
       right: 18px;
       transform: translateY(-50%);
-      background: var(--red);
+      background: linear-gradient(90deg, var(--purple), var(--pink));
       color: #ffffff;
       font-size: 10px;
       letter-spacing: 1.7px;
       font-weight: 950;
       padding: 7px 12px;
       border-radius: 0 0 8px 8px;
-      box-shadow: 0 0 18px rgba(255, 59, 59, 0.45);
+      box-shadow: 0 0 18px rgba(255, 79, 216, 0.45);
       text-transform: uppercase;
     }
 
     .lock {
       font-size: 23px;
       margin-top: 4px;
-      filter: drop-shadow(0 0 8px rgba(255, 59, 59, 0.35));
+      filter: drop-shadow(0 0 8px rgba(255, 79, 216, 0.35));
     }
 
     .important-card small {
-      color: #9fdabf;
+      color: #d9bdff;
       font-size: 10.5px;
       font-weight: 950;
       letter-spacing: 1.8px;
@@ -327,7 +372,7 @@
     }
 
     .important-card p span {
-      color: var(--green);
+      color: #ff8ce7;
       font-weight: 950;
     }
 
@@ -360,8 +405,13 @@
         font-size: 11px;
       }
 
-      .logo img {
-        width: 160px;
+      .logo-text {
+        font-size: 23px;
+      }
+
+      .logo-icon {
+        width: 38px;
+        height: 38px;
       }
     }
   </style>
@@ -370,7 +420,8 @@
 <body>
   <main class="page">
     <header class="logo">
-      <img src="fc logo new.png" alt="Freecash Logo" />
+      <div class="logo-icon"></div>
+      <div class="logo-text">playful<span>rewards</span></div>
     </header>
 
     <section class="hero">
@@ -380,17 +431,17 @@
       </h1>
 
       <p>
-        Play games, complete simple offers, and earn real cash rewards —
-        PayPal, crypto, gift cards and more.
+        Play games, complete simple offers, take surveys, and earn real rewards —
+        PayPal, gift cards and more.
       </p>
 
-      <div class="pill">● Real cash — not game coins or boosters.</div>
+      <div class="pill">● Real rewards — not game coins or boosters.</div>
 
       <button class="cta" onclick="goToOffer()">Download Now →</button>
 
       <div class="trust">
         <span>Free</span>
-        <span>Fast Payouts</span>
+        <span>Fast Rewards</span>
         <span>Quick Signup</span>
       </div>
     </section>
@@ -398,7 +449,7 @@
     <section class="earn-card">
       <h2>See what you could <span>earn back</span></h2>
       <p>
-        Drag the slider — based on real average payouts from apps, games,
+        Drag the slider — based on average rewards from apps, games,
         surveys and reward milestones.
       </p>
 
@@ -437,24 +488,24 @@
       <div class="step">
         <div class="num">1</div>
         <div>
-          <h3>Join Freecash & Claim Your Bonus</h3>
-          <p>Available on iOS, Android and desktop. Signup takes less than 60 seconds.</p>
+          <h3>Download Playful Rewards</h3>
+          <p>Available on iOS and iPad. Signup takes less than 60 seconds.</p>
         </div>
       </div>
 
       <div class="step">
         <div class="num">2</div>
         <div>
-          <h3>Complete Apps, Games & Offers</h3>
-          <p>Test apps, play games, answer surveys, watch videos and unlock milestones.</p>
+          <h3>Play Games & Complete Offers</h3>
+          <p>Test apps, play games, answer surveys and unlock reward milestones.</p>
         </div>
       </div>
 
       <div class="step">
         <div class="num">3</div>
         <div>
-          <h3>Cash Out Your Earnings</h3>
-          <p>Withdraw with PayPal, crypto, gift cards, bank options and more.</p>
+          <h3>Cash Out Your Rewards</h3>
+          <p>Redeem through PayPal, Visa, Amazon gift cards and more.</p>
         </div>
       </div>
     </section>
@@ -472,8 +523,8 @@
     </section>
 
     <div class="stats">
-      <span>50M+ Players</span>
-      <span>$100M+ Paid Out</span>
+      <span>10M+ Users</span>
+      <span>$50M+ Paid Out</span>
       <span>🇺🇸 US</span>
     </div>
 
@@ -504,14 +555,15 @@
     }
 
     function buildOutgoingLink() {
-      const baseLink = "https://freecash.com/?ref=YOUR_REF_HERE";
+      const baseLink = "YOUR_PLAYFUL_REWARDS_LINK_HERE";
       const source = getIncomingSource();
 
       if (!source) {
         return baseLink;
       }
 
-      return baseLink + "&source=" + encodeURIComponent(source);
+      const separator = baseLink.includes("?") ? "&" : "?";
+      return baseLink + separator + "source=" + encodeURIComponent(source);
     }
 
     function goToOffer() {
