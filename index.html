@@ -7,18 +7,19 @@
 
   <style>
     :root {
-      --purple: #8b20ff;
-      --purple-dark: #5f00c9;
-      --pink: #ff4fd8;
-      --blue: #6c7dff;
+      --purple: #7b1fff;
+      --purple-2: #8e34ff;
+      --purple-3: #a85cff;
+      --purple-soft: #cda8ff;
       --bg: #050509;
-      --card: #0d0b16;
-      --card-2: #151020;
-      --border: rgba(155, 72, 255, 0.28);
+      --card: #0c0914;
+      --card-2: #120d1d;
+      --border: rgba(123, 31, 255, 0.28);
       --text: #ffffff;
-      --muted: #b7aec8;
+      --muted: #b7b0c8;
       --red: #ff4b6e;
-      --gradient: linear-gradient(90deg, #6c7dff 0%, #9b35ff 48%, #ff4fd8 100%);
+      --gold: #f4c552;
+      --gradient: linear-gradient(90deg, #7b1fff 0%, #9240ff 52%, #b36aff 100%);
     }
 
     * {
@@ -30,8 +31,9 @@
 
     body {
       background:
-        radial-gradient(circle at 50% 18%, rgba(139, 32, 255, 0.16), transparent 34%),
-        radial-gradient(circle at 85% 45%, rgba(255, 79, 216, 0.10), transparent 30%),
+        radial-gradient(circle at 50% 16%, rgba(123, 31, 255, 0.16), transparent 32%),
+        radial-gradient(circle at 20% 36%, rgba(146, 64, 255, 0.08), transparent 26%),
+        radial-gradient(circle at 85% 28%, rgba(179, 106, 255, 0.08), transparent 24%),
         var(--bg);
       color: var(--text);
       min-height: 100vh;
@@ -44,56 +46,53 @@
       width: 100%;
       max-width: 430px;
       min-height: 100vh;
-      padding: 28px 16px 28px;
+      padding: 24px 16px 28px;
     }
 
     .logo {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 0px;
-      margin-bottom: 6px;
       gap: 10px;
+      margin-top: 0;
+      margin-bottom: 6px;
     }
 
-    .logo-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 13px;
-      background: var(--gradient);
-      display: grid;
-      place-items: center;
-      box-shadow: 0 0 22px rgba(155, 72, 255, 0.55);
-      position: relative;
+    .brand-item {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow:
+        0 0 10px rgba(139, 52, 255, 0.18),
+        0 0 18px rgba(139, 52, 255, 0.10);
       overflow: hidden;
+      flex-shrink: 0;
     }
 
-    .logo-icon::before {
-      content: "P";
-      font-size: 27px;
+    .brand-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .brand-x {
+      font-size: 16px;
+      font-weight: 900;
+      color: #d9c4ff;
+      opacity: 0.9;
       line-height: 1;
-      font-weight: 950;
-      color: #ffffff;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
-    }
-
-    .logo-text {
-      font-size: 25px;
-      font-weight: 950;
-      letter-spacing: -1px;
-      color: #ffffff;
-    }
-
-    .logo-text span {
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      transform: translateY(-1px);
     }
 
     .hero {
       text-align: center;
-      padding: 6px 0 18px;
+      padding: 8px 0 18px;
     }
 
     .hero h1 {
@@ -101,7 +100,7 @@
       line-height: 1.06;
       letter-spacing: -1.4px;
       font-weight: 950;
-      text-shadow: 0 0 28px rgba(155, 72, 255, 0.45);
+      text-shadow: 0 0 24px rgba(123, 31, 255, 0.36);
     }
 
     .hero h1 span {
@@ -126,13 +125,13 @@
       gap: 7px;
       padding: 8px 15px;
       border-radius: 999px;
-      background: rgba(139, 32, 255, 0.12);
+      background: rgba(123, 31, 255, 0.12);
       border: 1px solid var(--border);
-      color: #d9bdff;
+      color: #ddc9ff;
       font-size: 13px;
       font-weight: 800;
       margin-top: 4px;
-      box-shadow: 0 0 18px rgba(139, 32, 255, 0.16);
+      box-shadow: 0 0 14px rgba(123, 31, 255, 0.12);
     }
 
     .cta {
@@ -147,16 +146,16 @@
       font-weight: 950;
       cursor: pointer;
       box-shadow:
-        0 0 24px rgba(155, 72, 255, 0.58),
-        0 12px 30px rgba(255, 79, 216, 0.18);
+        0 0 22px rgba(123, 31, 255, 0.38),
+        0 12px 28px rgba(123, 31, 255, 0.16);
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
     .cta:hover {
       transform: translateY(-2px);
       box-shadow:
-        0 0 34px rgba(155, 72, 255, 0.78),
-        0 16px 36px rgba(255, 79, 216, 0.26);
+        0 0 30px rgba(123, 31, 255, 0.50),
+        0 16px 34px rgba(123, 31, 255, 0.20);
     }
 
     .trust {
@@ -167,22 +166,22 @@
       margin-top: 10px;
       color: var(--muted);
       font-size: 11.5px;
+      flex-wrap: wrap;
     }
 
     .trust span::before {
       content: "✓ ";
-      color: var(--pink);
+      color: var(--purple-3);
       font-weight: 900;
     }
 
     .earn-card,
     .steps-card,
     .important-card {
-      background:
-        linear-gradient(180deg, rgba(21, 16, 32, 0.98), rgba(8, 7, 13, 0.98));
+      background: linear-gradient(180deg, rgba(18, 13, 29, 0.98), rgba(8, 7, 13, 0.98));
       border: 1px solid var(--border);
       border-radius: 18px;
-      box-shadow: 0 0 30px rgba(139, 32, 255, 0.10);
+      box-shadow: 0 0 26px rgba(123, 31, 255, 0.08);
     }
 
     .earn-card {
@@ -202,7 +201,6 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: none;
     }
 
     .earn-card p {
@@ -221,15 +219,15 @@
     }
 
     .earn-box {
-      border: 1px solid rgba(155, 72, 255, 0.25);
-      background: #090711;
+      border: 1px solid rgba(123, 31, 255, 0.24);
+      background: #080710;
       border-radius: 12px;
       padding: 17px 10px;
     }
 
     .earn-box small {
       display: block;
-      color: #8b819c;
+      color: #8b84a0;
       font-size: 10px;
       letter-spacing: 2px;
       font-weight: 800;
@@ -244,8 +242,8 @@
     }
 
     .earn-box.highlight {
-      border-color: rgba(255, 79, 216, 0.62);
-      box-shadow: inset 0 0 20px rgba(255, 79, 216, 0.07);
+      border-color: rgba(168, 92, 255, 0.52);
+      box-shadow: inset 0 0 18px rgba(123, 31, 255, 0.07);
     }
 
     .earn-box.highlight strong {
@@ -253,7 +251,6 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: none;
     }
 
     .slider-wrap {
@@ -269,7 +266,7 @@
     .slider-values {
       display: flex;
       justify-content: space-between;
-      color: #80768f;
+      color: #847b97;
       font-size: 11px;
       margin-top: 5px;
     }
@@ -281,7 +278,7 @@
 
     .steps-title {
       padding: 18px 18px 8px;
-      color: #d9bdff;
+      color: #d9c4ff;
       font-size: 12px;
       letter-spacing: 2.2px;
       text-align: center;
@@ -294,7 +291,7 @@
       grid-template-columns: 42px 1fr;
       gap: 10px;
       padding: 17px 18px;
-      border-top: 1px solid rgba(155, 72, 255, 0.14);
+      border-top: 1px solid rgba(123, 31, 255, 0.12);
     }
 
     .num {
@@ -306,7 +303,7 @@
       background: var(--gradient);
       color: #ffffff;
       font-weight: 950;
-      box-shadow: 0 0 18px rgba(155, 72, 255, 0.62);
+      box-shadow: 0 0 14px rgba(123, 31, 255, 0.34);
       margin-top: 2px;
     }
 
@@ -328,10 +325,10 @@
       grid-template-columns: 32px 1fr;
       gap: 12px;
       position: relative;
-      border-color: rgba(255, 79, 216, 0.38);
+      border-color: rgba(168, 92, 255, 0.30);
       background:
-        radial-gradient(circle at 88% 0%, rgba(255, 79, 216, 0.16), transparent 40%),
-        linear-gradient(180deg, rgba(22, 10, 28, 0.98), rgba(10, 7, 13, 0.98));
+        radial-gradient(circle at 88% 0%, rgba(123, 31, 255, 0.14), transparent 40%),
+        linear-gradient(180deg, rgba(20, 11, 29, 0.98), rgba(10, 8, 13, 0.98));
     }
 
     .badge {
@@ -339,25 +336,25 @@
       top: 0;
       right: 18px;
       transform: translateY(-50%);
-      background: linear-gradient(90deg, var(--purple), var(--pink));
+      background: linear-gradient(90deg, #7b1fff, #9d4bff);
       color: #ffffff;
       font-size: 10px;
       letter-spacing: 1.7px;
       font-weight: 950;
       padding: 7px 12px;
       border-radius: 0 0 8px 8px;
-      box-shadow: 0 0 18px rgba(255, 79, 216, 0.45);
+      box-shadow: 0 0 14px rgba(123, 31, 255, 0.24);
       text-transform: uppercase;
     }
 
     .lock {
       font-size: 23px;
       margin-top: 4px;
-      filter: drop-shadow(0 0 8px rgba(255, 79, 216, 0.35));
+      filter: drop-shadow(0 0 6px rgba(123, 31, 255, 0.24));
     }
 
     .important-card small {
-      color: #d9bdff;
+      color: #dac6ff;
       font-size: 10.5px;
       font-weight: 950;
       letter-spacing: 1.8px;
@@ -372,7 +369,7 @@
     }
 
     .important-card p span {
-      color: #ff8ce7;
+      color: #b786ff;
       font-weight: 950;
     }
 
@@ -383,6 +380,7 @@
       margin: 18px 0;
       color: var(--muted);
       font-size: 12px;
+      flex-wrap: wrap;
     }
 
     .bottom-cta {
@@ -405,13 +403,14 @@
         font-size: 11px;
       }
 
-      .logo-text {
-        font-size: 23px;
+      .brand-item {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
       }
 
-      .logo-icon {
-        width: 38px;
-        height: 38px;
+      .brand-x {
+        font-size: 14px;
       }
     }
   </style>
@@ -420,8 +419,15 @@
 <body>
   <main class="page">
     <header class="logo">
-      <div class="logo-icon"></div>
-      <div class="logo-text">playful<span>rewards</span></div>
+      <div class="brand-item">
+        <img src="playful logo.png" alt="Playful Rewards Logo" />
+      </div>
+
+      <div class="brand-x">×</div>
+
+      <div class="brand-item">
+        <img src="blockblast logo.png" alt="Block Blast Logo" />
+      </div>
     </header>
 
     <section class="hero">
