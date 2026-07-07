@@ -3,23 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Playful Rewards</title>
+  <title>Testerup</title>
 
   <style>
     :root {
-      --purple: #8f00ff;
-      --purple-2: #a020ff;
-      --purple-3: #bf5cff;
-      --purple-soft: #d8a8ff;
-      --bg: #050509;
-      --card: #0c0914;
-      --card-2: #120d1d;
-      --border: rgba(143, 0, 255, 0.30);
+      --red-main: #ff1f3d;
+      --red-2: #e50914;
+      --red-3: #ff4b5c;
+      --red-soft: #ffb3bb;
+      --bg: #050505;
+      --card: #0d0d0d;
+      --card-2: #141414;
+      --border: rgba(255, 31, 61, 0.30);
       --text: #ffffff;
-      --muted: #b7b0c8;
-      --red: #ff4b6e;
+      --muted: #b8b8b8;
       --gold: #f4c552;
-      --gradient: linear-gradient(90deg, #8f00ff 0%, #a020ff 52%, #bf5cff 100%);
+      --gradient: linear-gradient(90deg, #e50914 0%, #ff1f3d 52%, #ff4b5c 100%);
     }
 
     * {
@@ -31,9 +30,9 @@
 
     body {
       background:
-        radial-gradient(circle at 50% 16%, rgba(143, 0, 255, 0.14), transparent 32%),
-        radial-gradient(circle at 20% 36%, rgba(160, 32, 255, 0.08), transparent 26%),
-        radial-gradient(circle at 85% 28%, rgba(191, 92, 255, 0.08), transparent 24%),
+        radial-gradient(circle at 50% 16%, rgba(255, 31, 61, 0.14), transparent 32%),
+        radial-gradient(circle at 20% 36%, rgba(229, 9, 20, 0.08), transparent 26%),
+        radial-gradient(circle at 85% 28%, rgba(255, 75, 92, 0.08), transparent 24%),
         var(--bg);
       color: var(--text);
       min-height: 100vh;
@@ -65,11 +64,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(191, 92, 255, 0.20);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 75, 92, 0.22);
       box-shadow:
-        0 0 8px rgba(143, 0, 255, 0.18),
-        0 0 14px rgba(143, 0, 255, 0.10);
+        0 0 8px rgba(255, 31, 61, 0.18),
+        0 0 14px rgba(255, 31, 61, 0.10);
       overflow: hidden;
       flex-shrink: 0;
     }
@@ -84,7 +83,7 @@
     .brand-x {
       font-size: 16px;
       font-weight: 900;
-      color: #e1c4ff;
+      color: #ffffff;
       opacity: 0.9;
       line-height: 1;
       transform: translateY(-1px);
@@ -104,7 +103,7 @@
       left: 50%;
       top: 18px;
       transform: translateX(-50%);
-      background: radial-gradient(circle, rgba(143, 0, 255, 0.17), transparent 68%);
+      background: radial-gradient(circle, rgba(255, 31, 61, 0.17), transparent 68%);
       filter: blur(18px);
       pointer-events: none;
       z-index: -1;
@@ -116,8 +115,8 @@
       letter-spacing: -1.4px;
       font-weight: 950;
       text-shadow:
-        0 0 16px rgba(143, 0, 255, 0.18),
-        0 0 28px rgba(143, 0, 255, 0.14);
+        0 0 16px rgba(255, 31, 61, 0.18),
+        0 0 28px rgba(255, 31, 61, 0.14);
     }
 
     .hero h1 span {
@@ -142,13 +141,13 @@
       gap: 7px;
       padding: 8px 15px;
       border-radius: 999px;
-      background: rgba(143, 0, 255, 0.13);
+      background: rgba(255, 31, 61, 0.13);
       border: 1px solid var(--border);
-      color: #e2c9ff;
+      color: #ffffff;
       font-size: 13px;
       font-weight: 800;
       margin-top: 4px;
-      box-shadow: 0 0 14px rgba(143, 0, 255, 0.13);
+      box-shadow: 0 0 14px rgba(255, 31, 61, 0.13);
     }
 
     .cta {
@@ -163,16 +162,16 @@
       font-weight: 950;
       cursor: pointer;
       box-shadow:
-        0 0 22px rgba(143, 0, 255, 0.40),
-        0 12px 28px rgba(143, 0, 255, 0.17);
+        0 0 22px rgba(255, 31, 61, 0.40),
+        0 12px 28px rgba(255, 31, 61, 0.17);
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
     .cta:hover {
       transform: translateY(-2px);
       box-shadow:
-        0 0 30px rgba(143, 0, 255, 0.52),
-        0 16px 34px rgba(143, 0, 255, 0.22);
+        0 0 30px rgba(255, 31, 61, 0.52),
+        0 16px 34px rgba(255, 31, 61, 0.22);
     }
 
     .trust {
@@ -188,17 +187,17 @@
 
     .trust span::before {
       content: "✓ ";
-      color: var(--purple-3);
+      color: var(--red-3);
       font-weight: 900;
     }
 
     .earn-card,
     .steps-card,
     .important-card {
-      background: linear-gradient(180deg, rgba(18, 13, 29, 0.98), rgba(8, 7, 13, 0.98));
+      background: linear-gradient(180deg, rgba(20, 20, 20, 0.98), rgba(7, 7, 7, 0.98));
       border: 1px solid var(--border);
       border-radius: 18px;
-      box-shadow: 0 0 26px rgba(143, 0, 255, 0.09);
+      box-shadow: 0 0 26px rgba(255, 31, 61, 0.09);
     }
 
     .earn-card {
@@ -236,15 +235,15 @@
     }
 
     .earn-box {
-      border: 1px solid rgba(143, 0, 255, 0.26);
-      background: #080710;
+      border: 1px solid rgba(255, 31, 61, 0.26);
+      background: #080808;
       border-radius: 12px;
       padding: 17px 10px;
     }
 
     .earn-box small {
       display: block;
-      color: #8b84a0;
+      color: #8d8d8d;
       font-size: 10px;
       letter-spacing: 2px;
       font-weight: 800;
@@ -259,8 +258,8 @@
     }
 
     .earn-box.highlight {
-      border-color: rgba(191, 92, 255, 0.54);
-      box-shadow: inset 0 0 18px rgba(143, 0, 255, 0.08);
+      border-color: rgba(255, 75, 92, 0.54);
+      box-shadow: inset 0 0 18px rgba(255, 31, 61, 0.08);
     }
 
     .earn-box.highlight strong {
@@ -276,14 +275,14 @@
 
     input[type="range"] {
       width: 100%;
-      accent-color: var(--purple);
+      accent-color: var(--red-main);
       cursor: pointer;
     }
 
     .slider-values {
       display: flex;
       justify-content: space-between;
-      color: #847b97;
+      color: #8d8d8d;
       font-size: 11px;
       margin-top: 5px;
     }
@@ -295,7 +294,7 @@
 
     .steps-title {
       padding: 18px 18px 8px;
-      color: #e1c4ff;
+      color: #ffffff;
       font-size: 12px;
       letter-spacing: 2.2px;
       text-align: center;
@@ -308,7 +307,7 @@
       grid-template-columns: 42px 1fr;
       gap: 10px;
       padding: 17px 18px;
-      border-top: 1px solid rgba(143, 0, 255, 0.13);
+      border-top: 1px solid rgba(255, 31, 61, 0.13);
     }
 
     .num {
@@ -320,7 +319,7 @@
       background: var(--gradient);
       color: #ffffff;
       font-weight: 950;
-      box-shadow: 0 0 14px rgba(143, 0, 255, 0.36);
+      box-shadow: 0 0 14px rgba(255, 31, 61, 0.36);
       margin-top: 2px;
     }
 
@@ -342,10 +341,10 @@
       grid-template-columns: 32px 1fr;
       gap: 12px;
       position: relative;
-      border-color: rgba(191, 92, 255, 0.32);
+      border-color: rgba(255, 75, 92, 0.32);
       background:
-        radial-gradient(circle at 88% 0%, rgba(143, 0, 255, 0.15), transparent 40%),
-        linear-gradient(180deg, rgba(20, 11, 29, 0.98), rgba(10, 8, 13, 0.98));
+        radial-gradient(circle at 88% 0%, rgba(255, 31, 61, 0.15), transparent 40%),
+        linear-gradient(180deg, rgba(20, 11, 12, 0.98), rgba(8, 8, 8, 0.98));
     }
 
     .badge {
@@ -353,25 +352,25 @@
       top: 0;
       right: 18px;
       transform: translateY(-50%);
-      background: linear-gradient(90deg, #8f00ff, #aa35ff);
+      background: linear-gradient(90deg, #e50914, #ff1f3d);
       color: #ffffff;
       font-size: 10px;
       letter-spacing: 1.7px;
       font-weight: 950;
       padding: 7px 12px;
       border-radius: 0 0 8px 8px;
-      box-shadow: 0 0 14px rgba(143, 0, 255, 0.26);
+      box-shadow: 0 0 14px rgba(255, 31, 61, 0.26);
       text-transform: uppercase;
     }
 
     .lock {
       font-size: 23px;
       margin-top: 4px;
-      filter: drop-shadow(0 0 6px rgba(143, 0, 255, 0.26));
+      filter: drop-shadow(0 0 6px rgba(255, 31, 61, 0.26));
     }
 
     .important-card small {
-      color: #e1c6ff;
+      color: #ffffff;
       font-size: 10.5px;
       font-weight: 950;
       letter-spacing: 1.8px;
@@ -386,7 +385,7 @@
     }
 
     .important-card p span {
-      color: #c18cff;
+      color: #ff4b5c;
       font-weight: 950;
     }
 
@@ -437,7 +436,7 @@
   <main class="page">
     <header class="logo">
       <div class="brand-item">
-        <img src="playful logo.png" alt="Playful Rewards Logo" />
+        <img src="testerup logo.jpg" alt="Testerup Logo" />
       </div>
 
       <div class="brand-x">×</div>
